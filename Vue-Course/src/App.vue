@@ -9,6 +9,7 @@ import RefComponent from './components/RefComponent.vue'
 import TextInterpolation from './components/TextInterpolation.vue'
 import VBind from './components/VBind.vue'
 import VComputed from './components/VComputed.vue'
+import VDirectiveTaskManager from './components/VDirectiveTaskManager.vue'
 import VFor from './components/VFor.vue'
 import VIf from './components/VIf.vue'
 </script>
@@ -26,6 +27,8 @@ import VIf from './components/VIf.vue'
   <VIf />
   <VComputed />
   <OnMounted />
+
+  <VDirectiveTaskManager />
 </template>
 
 <style scoped></style>

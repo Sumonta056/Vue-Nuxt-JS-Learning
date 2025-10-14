@@ -114,18 +114,13 @@ This document tracks the Vue.js concepts and features I have learned and impleme
   - Custom event emission with `defineEmits`
   - Event payload handling
 
-### 11. **Advanced Features**
+### 11. V Directives Overview
 
-- ✅ **Local Storage Integration** - [`App.vue`](Expense-Tracker/src/App.vue)
-  - Data persistence across browser sessions
-  - JSON serialization/deserialization
-- ✅ **Third-party Libraries** - [`main.js`](Expense-Tracker/src/main.js)
-  - Vue Toastification for notifications
-  - Plugin registration and configuration
-- ✅ **CSS Styling**
-  - Scoped CSS in components
-  - Dynamic class binding
-  - Component-specific styling
+![alt text](./assets/image.png)
+
+### 12. Lifecycle Methods Overview
+
+![alt text](./assets/image-1.png)
 
 ## 🎯 Practical Projects
 
@@ -142,22 +137,6 @@ A complete CRUD application featuring:
 - Local storage persistence
 - Toast notifications
 - Component communication patterns
-
-## 🛠️ Development Tools & Setup
-
-- ✅ Vite build tool configuration
-- ✅ ESLint for code quality
-- ✅ Prettier for code formatting
-- ✅ Vue DevTools integration
-- ✅ Hot reload development environment
-
-## 🔄 Reactive Patterns Learned
-
-- Ref vs Reactive usage patterns
-- Computed properties for derived state
-- Event-driven component communication
-- Lifecycle-based data fetching
-- Form handling and validation
 
 ## 📝 Key Vue.js Concepts Mastered
 
