@@ -6,3 +6,5 @@
 4. V-if : Conditional rendering of elements based on a boolean expression. V-else-if and V-else can also be used for multiple conditions.
 5. V-for : It is used to render a list of items by iterating over an array or object.
 6. Watch : It is used to watch for changes in a reactive data property and execute a function when that property changes.
+7. V-On: It is used to listen to DOM events and execute methods when those events are triggered. like @click, @submit etc.
+8. Class and Style Binding: Vue 3 allows dynamic binding of classes and styles using the v-bind directive or its shorthand syntax (:). Example: :class="{ active: isActive }" or :style="{ color: activeColor }".
