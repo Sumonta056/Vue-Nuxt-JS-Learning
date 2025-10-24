@@ -8,3 +8,4 @@
 6. Watch : It is used to watch for changes in a reactive data property and execute a function when that property changes.
 7. V-On: It is used to listen to DOM events and execute methods when those events are triggered. like @click, @submit etc.
 8. Class and Style Binding: Vue 3 allows dynamic binding of classes and styles using the v-bind directive or its shorthand syntax (:). Example: :class="{ active: isActive }" or :style="{ color: activeColor }".
+9. computed(): Computed properties are used to create derived state based on reactive data. They are cached and only re-evaluated when their dependencies change.

@@ -1,6 +1,7 @@
 <script setup>
-import { ref, watch } from "vue";
-
+import { computed, ref, watch } from "vue";
+const outOfStockImage =
+  "https://t4.ftcdn.net/jpg/02/65/83/15/360_F_265831541_RUAcAGkikMs2WJOZ40D1BzjWqyp0MRze.jpg";
 const productInfo = ref({
   productName: "Shoes",
   productDescription: "Here, You get topic quality shoe",
@@ -19,8 +20,37 @@ const productInfo = ref({
       url: "https://arthurknight.com/media/catalog/product/cache/8723b12f6326e9bdc6bc191d0c49a6b8/e/l/electric-blue-suede-mens-driving-shoes-1.jpg",
     },
   ],
-  productInventory: 2,
+  productInventory: [
+    {
+      key: "Default",
+      stock: 15,
+    },
+    {
+      key: "Green",
+      stock: 100,
+    },
+    {
+      key: "Blue",
+      stock: 4,
+    },
+  ],
+  price: [
+    {
+      key: "Default",
+      amount: 2000,
+    },
+    {
+      key: "Green",
+      amount: 5000,
+    },
+    {
+      key: "Blue",
+      amount: 4000,
+    },
+  ],
   onSale: true,
+  salesAmount: "50",
+  salesOccasion: "Eid",
   sizes: ["L", "XL", "XXL"],
   details: [
     "Premium leather construction",
@@ -33,17 +63,51 @@ const productInfo = ref({
 const selectedSize = ref(null);
 const selectedVariant = ref("Default");
 const currentImage = ref(productInfo.value.productImage[0].url);
-const cartValue = ref(0);
+const cartValue = ref(null);
+
+const currentStock = computed(() => {
+  const inventoryItem = productInfo.value.productInventory.find(
+    (item) => item.key === selectedVariant.value
+  );
+  return inventoryItem ? inventoryItem.stock : 0;
+});
+
+const currentPrice = computed(() => {
+  const inventoryItem = productInfo.value.price.find(
+    (item) => item.key === selectedVariant.value
+  );
+
+  return inventoryItem ? inventoryItem.amount : 0;
+});
+
+const discountedPrice = computed(() => {
+  const price = (currentPrice.value * productInfo.value.salesAmount) / 100;
+  return currentPrice.value - price;
+});
+
+const onSaleMessage = computed(() => {
+  return (
+    productInfo.value.salesOccasion +
+    " Sales " +
+    productInfo.value.salesAmount +
+    "%"
+  );
+});
 
 const addToCart = () => {
   cartValue.value += 1;
-  productInfo.value.productInventory -= 1;
+  const inventoryItem = productInfo.value.productInventory.find(
+    (item) => item.key === selectedVariant.value
+  );
+  inventoryItem.stock--;
 };
 
+// It can also be done using computed
 watch(selectedVariant, (newVariant) => {
   const object = productInfo.value.productImage.find(
     (img) => img.key == newVariant
   );
+
   currentImage.value = object?.url || productInfo.value.productImage[0].url;
 });
 </script>
@@ -156,33 +220,43 @@ watch(selectedVariant, (newVariant) => {
               10% OFF
             </span>
           </div>
+
+          <div class="absolute bottom-1 right-1" v-if="currentStock <= 0">
+            <img :src="outOfStockImage" class="w-40 object-cover" />
+          </div>
         </div>
 
         <!-- Content Section -->
         <div class="p-5">
           <!-- Title & Stock -->
           <div class="flex items-start justify-between mb-2">
-            <h2 class="text-xl font-bold text-white">
+            <h2 class="text-xl font-bold text-white flex gap-2">
               {{ productInfo.productName }}
+              <p
+                class="text-yellow-300 text-sm font-normal"
+                v-if="productInfo.onSale == true"
+              >
+                {{ onSaleMessage }}
+              </p>
             </h2>
+
             <div class="flex items-center gap-1">
               <div
                 class="w-2 h-2 rounded-full"
                 :class="{
-                  'bg-green-400': productInfo.productInventory >= 30,
-                  'bg-yellow-400':
-                    productInfo.productInventory >= 11 &&
-                    productInfo.productInventory <= 29,
-                  'bg-red-400': productInfo.productInventory < 11,
+                  'bg-green-400': currentStock >= 30,
+                  'bg-yellow-400': currentStock >= 11 && currentStock <= 29,
+                  'bg-red-400': currentStock < 11,
                 }"
               ></div>
               <span class="text-gray-300 text-xs">
-                {{ productInfo.productInventory }} in stock
+                {{ currentStock }} in stock
               </span>
             </div>
           </div>
 
           <!-- Description -->
+
           <p class="text-gray-300 text-sm mb-4">
             {{ productInfo.productDescription }}
           </p>
@@ -253,6 +327,16 @@ watch(selectedVariant, (newVariant) => {
             </ul>
           </div>
 
+          <div class="text-gray-300 text-xs mb-4 flex gap-1">
+            <div :class="[productInfo.onSale ? 'line-through' : '']">
+              <span class="font-semibold">Price :</span>
+              {{ currentPrice }} BDT
+            </div>
+            <span v-if="productInfo.onSale" class="text-yellow-300">
+              Discounted Price {{ discountedPrice }} BDT</span
+            >
+          </div>
+
           <!-- Shop Now Button -->
           <div class="flex gap-2">
             <a
@@ -276,13 +360,13 @@ watch(selectedVariant, (newVariant) => {
             </a>
             <button
               :class="[
-              'flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5   font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105',
-              productInfo.productInventory <= 0
-                ? 'bg-red-700 text-white cursor-not-allowed'
-                : 'bg-gradient-to-r from-gray-300 to-stone-200 text-black cursor-pointer',
+                'flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5   font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105',
+                currentStock <= 0
+                  ? 'bg-red-700 text-white cursor-not-allowed'
+                  : 'bg-gradient-to-r from-gray-300 to-stone-200 text-black cursor-pointer',
               ]"
               v-on:click="addToCart"
-              :disabled="productInfo.productInventory <= 0"
+              :disabled="currentStock <= 0"
             >
               <svg
                 class="w-4 h-4"
@@ -297,7 +381,7 @@ watch(selectedVariant, (newVariant) => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m1.5-6h10m0 0v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"
                 ></path>
               </svg>
-              <span v-if="productInfo.productInventory > 0"> Add to Cart</span>
+              <span v-if="currentStock > 0"> Add to Cart</span>
               <span v-else>Out of Stock</span>
             </button>
           </div>
