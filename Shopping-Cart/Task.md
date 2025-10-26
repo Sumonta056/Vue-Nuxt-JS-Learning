@@ -1,6 +1,0 @@
-- detach component
-  - separae component from product card
-- connect component
-- show 10 list
-- fix add to cart button
-- show info in cart

@@ -9,9 +9,12 @@ const props = defineProps({
   selectedVariant: {
     required: true,
   },
+  selectedSize: {
+    required: true,
+  },
 });
 
-const { productInfo, selectedVariant } = toRefs(props);
+const { productInfo, selectedVariant, selectedSize } = toRefs(props);
 const emits = defineEmits(["update-variant", "update-size"]);
 
 const updateVariant = (variant) => {

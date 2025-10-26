@@ -1,14 +1,11 @@
 <script setup>
-import { defineProps, toRefs, computed } from "vue";
+import { computed, defineProps, toRefs } from "vue";
 
 const props = defineProps({
   productInfo: {
     required: true,
   },
   currentStock: {
-    required: true,
-  },
-  selectedVariant: {
     required: true,
   },
 });

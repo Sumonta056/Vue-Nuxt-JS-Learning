@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar.vue";
 import ProductView from "@/components/ProductView.vue";
 import { products } from "@/data/data";
 import { ref } from "vue";
+import ReviewView from "../components/ReviewView.vue";
 
 const cartValue = ref(null);
 const addToCart = () => {
@@ -25,5 +26,7 @@ const addToCart = () => {
         @add-to-cart="addToCart"
       />
     </div>
+
+    <ReviewView />
   </div>
 </template>
