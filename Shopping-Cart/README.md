@@ -13,3 +13,6 @@
 11. emit(): emit is used to send custom events from a child component to its parent component, allowing communication between components.
 12. defineProps(): defineProps is a function used in the script setup syntax to define the props that a component can accept from its parent component.
 13. reactive(): reactive is a function that creates a reactive object, allowing for deep reactivity in Vue 3 applications.
+14. v-model: reactive two-way data binding between form input elements and component data properties.
+15. onMounted(): A lifecycle hook that is called after the component has been mounted to the DOM. It is often used for performing actions that require the component to be present in the DOM, such as fetching data or manipulating the DOM elements.
+
