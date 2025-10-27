@@ -15,4 +15,7 @@
 13. reactive(): reactive is a function that creates a reactive object, allowing for deep reactivity in Vue 3 applications.
 14. v-model: reactive two-way data binding between form input elements and component data properties.
 15. onMounted(): A lifecycle hook that is called after the component has been mounted to the DOM. It is often used for performing actions that require the component to be present in the DOM, such as fetching data or manipulating the DOM elements.
+16. useRoute(): A function provided by Vue Router to access the current route object, which contains information about the current route, such as path, params, query, etc.
+17. useRouter(): A function provided by Vue Router to access the router instance, allowing programmatic navigation and route manipulation within components.
+18. 
 

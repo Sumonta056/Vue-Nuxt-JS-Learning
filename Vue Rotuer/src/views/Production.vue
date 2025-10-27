@@ -35,12 +35,20 @@
     <div v-if="error" class="error">
       {{ error }}
     </div>
+
+  <div class="flex gap-5">
+      <button @click="useButton" class="p-4 bg-amber-500">Home</button>
+    <button @click="router.go(-1)" class="p-4 bg-amber-500">Back</button>
+    <button @click="router.push({ name: 'home' })" class="p-4 bg-amber-500">
+      go random
+    </button>
+  </div>
   </div>
 </template>
 
 <script setup>
 import { computed, ref, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 // Props with validation
 const props = defineProps({
@@ -56,6 +64,13 @@ const props = defineProps({
 
 // Composables
 const route = useRoute();
+const router = useRouter();
+
+const useButton = () => {
+  router.push({
+    name: "home",
+  });
+};
 
 // Reactive state
 const loading = ref(false);

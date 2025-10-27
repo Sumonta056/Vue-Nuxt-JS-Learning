@@ -1,5 +1,6 @@
 <script setup>
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
+const router = useRouter();
 </script>
 
 <template>
@@ -12,5 +13,6 @@ import { RouterLink } from "vue-router";
       class="text-white bg-green-700 hover:bg-green-900 rounded-md px-3 py-2 mt-4"
       >Go Back</RouterLink
     >
+    <button @click="router.go(-1)">Back</button>
   </section>
 </template>
