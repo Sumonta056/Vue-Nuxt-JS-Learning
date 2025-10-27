@@ -1,28 +1,6 @@
-## Vue JS Resource
-
-This repository contains a collection of resources and examples for learning and working with Vue.js, a progressive JavaScript framework for building user interfaces.
-
-### Contents
-
-- [Vue.js Official Documentation](https://vuejs.org/guide/quick-start.html)
-- [Vue.js Explained in 100 Seconds](https://youtu.be/nhBVL41-_Cw?si=4eIkd45jzlxgeN4Z)
-- [Vue.JS Setup with Tailwind CSS](https://youtu.be/P5d_UUxqOzs?si=KeMc70jda6jCQzhj), [Tailwind CSS Vue Doc](https://tailwindcss.com/docs/installation/using-vite)
-- [HuXn WebDev : Master Vue.js Composition API: Build 10 Stunning Projects for Real-world Expertise!](https://www.youtube.com/watch?v=pgWZLS75Nmo), [GitHub Repo](https://github.com/HuXn-WebDev/Vue.js-Complete-Course-With-10-Projects)
-- [Simple Expense Tracker App using Vue 3 and Composition API](https://www.youtube.com/watch?v=hNPwdOZ3qFU)
-
-### Resources
-
-- [Dummy Product Json API for basic implementation](https://dummyjson.com/docs/products)
-
-# Vue.js Learning Progress
+## Vue.js Learning Resources
 
 This document tracks the Vue.js concepts and features I have learned and implemented in this workspace.
-
-## 📚 Topics Covered
-
-## Intro to Vue 3
-
-## Vue.js Concepts Reference
 
 | #   | Concept                 | Description                                                        | Use Case                                   | Example                                      |
 | --- | ----------------------- | ------------------------------------------------------------------ | ------------------------------------------ | -------------------------------------------- |
@@ -170,8 +148,6 @@ This document tracks the Vue.js concepts and features I have learned and impleme
 
 ![alt text](./assets/image-1.png)
 
-
-
 ## 🎯 Practical Projects
 
 ### 1. **Vue Course Examples** - [`Vue-Course/`](Vue-Course/)
@@ -188,15 +164,18 @@ A complete CRUD application featuring:
 - Toast notifications
 - Component communication patterns
 
-## 📝 Key Vue.js Concepts Mastered
-
-1. **Composition API** - Modern Vue 3 approach
-2. **Reactivity System** - Understanding Vue's reactive data
-3. **Component Communication** - Props down, events up
-4. **Template Directives** - v-if, v-for, v-model, v-bind
-5. **Lifecycle Management** - Component mounting and cleanup
-6. **State Management** - Local component state handling
-
 ---
 
 _This learning journey demonstrates proficiency in Vue.js fundamentals and practical application development._
+
+### Contents
+
+- [Vue.js Official Documentation](https://vuejs.org/guide/quick-start.html)
+- [Vue.js Explained in 100 Seconds](https://youtu.be/nhBVL41-_Cw?si=4eIkd45jzlxgeN4Z)
+- [Vue.JS Setup with Tailwind CSS](https://youtu.be/P5d_UUxqOzs?si=KeMc70jda6jCQzhj), [Tailwind CSS Vue Doc](https://tailwindcss.com/docs/installation/using-vite)
+- [HuXn WebDev : Master Vue.js Composition API: Build 10 Stunning Projects for Real-world Expertise!](https://www.youtube.com/watch?v=pgWZLS75Nmo), [GitHub Repo](https://github.com/HuXn-WebDev/Vue.js-Complete-Course-With-10-Projects)
+- [Simple Expense Tracker App using Vue 3 and Composition API](https://www.youtube.com/watch?v=hNPwdOZ3qFU)
+
+### Resources
+
+- [Dummy Product Json API for basic implementation](https://dummyjson.com/docs/products)
