@@ -1,6 +1,6 @@
 ## Vue.js Learning Resources
 
-This document tracks the Vue.js concepts and features I have learned and implemented in this workspace.
+**This** document tracks the Vue.js concepts and features I have learned and implemented in this workspace.
 
 | #   | Concept                 | Description                                                        | Use Case                                   | Example                                      |
 | --- | ----------------------- | ------------------------------------------------------------------ | ------------------------------------------ | -------------------------------------------- |
